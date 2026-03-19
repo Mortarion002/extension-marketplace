@@ -9,8 +9,8 @@
       "/screenshots/article-highlighter-1.jpg",
       "/screenshots/article-highlighter-2.jpg"
     ],
-    "githubUrl": "https://github.com/EternalKnight002/article-highlighter.git",
-    "downloadUrl": "https://github.com/EternalKnight002/article-highlighter/releases/download/v1/article-highlighter.zip",
+    "githubUrl": "https://github.com/Mortarion002/article-highlighter",
+    "downloadUrl": "https://github.com/Mortarion002/article-highlighter/releases/download/v1/article-highlighter.zip",
     "poster": "/videos/article-highlighter-poster.jpg"
   },
 
@@ -21,8 +21,8 @@
     "longDesc": "Copy Code Cleaner intelligently detects code blocks (<pre>, <code>, etc.) and injects a 'Copy Clean' button. The cleaner removes line numbers, trims whitespace, decodes HTML entities, and offers options to preserve indentation. It's built as a tiny Manifest V3 Chrome extension with a configurable popup. (Source README used.)",
     "tags": ["chrome", "developer", "ux"],
     "screenshots": ["/screenshots/copy-code-cleaner-1.jpg"],
-    "githubUrl": "https://github.com/EternalKnight002/copy-code-cleaner.git",
-    "downloadUrl": "https://github.com/EternalKnight002/copy-code-cleaner/releases/download/v2/copy-code-cleaner.zip",
+    "githubUrl": "https://github.com/Mortarion002/copy-code-cleaner",
+    "downloadUrl": "https://github.com/Mortarion002/copy-code-cleaner/releases/download/v2/copy-code-cleaner.zip",
     "poster": "/videos/copy-code-cleaner-poster.jpg"
   },
 
@@ -36,8 +36,8 @@
       "/screenshots/logtailer-1.jpg",
       "/screenshots/logtailer-2.jpg"
     ],
-    "githubUrl": "https://github.com/EternalKnight002/logtailer.git",
-    "downloadUrl": "https://github.com/EternalKnight002/logtailer/releases/download/v1/logtailer.zip",
+    "githubUrl": "https://github.com/Mortarion002/logtailer.git",
+    "downloadUrl": "https://github.com/Mortarion002/logtailer/releases/download/v1/logtailer.zip",
     "poster": "/videos/logtailer-poster.jpg"
   },
 
@@ -48,8 +48,8 @@
     "longDesc": "NotebookLM PDF Exporter lets you download notes from Google's NotebookLM as a clean PDF. It preserves headings/tables, removes interactive citation markers, and uses smart pagination to avoid cut-off content. Lightweight, Manifest V3 extension requiring minimal permissions. (Source README used.)",
     "tags": ["chrome", "productivity", "export"],
     "screenshots": ["/screenshots/notebooklm-pdf-exporter-1.jpg"],
-    "githubUrl": "https://github.com/EternalKnight002/notebooklm-pdf-exporter.git",
-    "downloadUrl": "https://github.com/EternalKnight002/notebooklm-pdf-exporter/releases/download/v1/notebooklm-pdf-exporter.zip",
+    "githubUrl": "https://github.com/Mortarion002/NotebookLm-Pdf-Exporter",
+    "downloadUrl": "https://github.com/Mortarion002/NotebookLm-Pdf-Exporter/releases/download/V1.2/notebooklm-pdf-exporter.zip",
     "poster": "/videos/notebooklm-pdf-exporter-poster.jpg"
   },
 
@@ -60,8 +60,8 @@
     "longDesc": "A lightweight Pomodoro extension providing a classic 25/5 workflow with customizable durations, long-break support, desktop notifications, and a visual badge counter. Built as a Manifest V3 Chrome extension with persistent state and a dark theme UI. (Source README used.)",
     "tags": ["chrome", "productivity", "timer"],
     "screenshots": ["/screenshots/pomodoro-focus-timer-1.jpg"],
-    "githubUrl": "https://github.com/EternalKnight002/pomodoro-timer.git",
-    "downloadUrl": "https://github.com/EternalKnight002/pomodoro-timer/releases/download/v3.0/release.zip",
+    "githubUrl": "https://github.com/Mortarion002/Pomodoro-Timer",
+    "downloadUrl": "https://github.com/Mortarion002/Pomodoro-Timer/releases/download/V1.4/pomodoro-timer.zip",
     "poster": "/videos/pomodoro-focus-timer-poster.jpg"
   },
 
@@ -72,8 +72,8 @@
     "longDesc": "Quick QR Code Generator creates a QR code for the active tab URL or custom text. It includes a keyboard shortcut, real-time updates, and a download button for PNG export. Minimal permissions (activeTab) and a tiny codebase (qrcode.js). (Source README used.)",
     "tags": ["chrome", "utility", "sharing"],
     "screenshots": ["/screenshots/quick-qr-generator-1.jpg"],
-    "githubUrl": "https://github.com/EternalKnight002/qr-code-generator.git",
-    "downloadUrl": "https://github.com/EternalKnight002/qr-code-generator/releases/download/v1.1/qr-code-generator_v1.1.zip",
+    "githubUrl": "https://github.com/Mortarion002/qr-code-generator",
+    "downloadUrl": "https://github.com/Mortarion002/qr-code-generator/releases/download/v1.1/qr-code-generator_v1.1.zip",
     "poster": "/videos/quick-qr-generator-poster.jpg"
   },
 
@@ -84,8 +84,8 @@
     "longDesc": "Terminal History captures every command and output from VS Code's integrated terminal and displays them in a sidebar. It offers quick-copy, status icons, and export options. This is a VSIX-style extension — the VSIX download is available in releases. (Source README used.)",
     "tags": ["vscode", "developer", "productivity"],
     "screenshots": ["/screenshots/terminal-history-1.jpg"],
-    "githubUrl": "https://github.com/EternalKnight002/terminalHistory.git",
-    "downloadUrl": "https://github.com/EternalKnight002/terminalHistory/releases/download/v2.0.0/terminalhistory-2.0.0.vsix",
+    "githubUrl": "https://github.com/Mortarion002/Terminal-History",
+    "downloadUrl": "https://github.com/Mortarion002/Terminal-History/releases/download/V2.0/terminalhistory-2.0.0.vsix",
     "poster": "/videos/terminal-history-poster.jpg"
   }
 ]

@@ -107,7 +107,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
                 <div className="footer-social mt-8" aria-hidden="false">
                   <a
-                    href="https://github.com/EternalKnight002"
+                    href="https://github.com/Mortarion002"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="footer-social__link"
@@ -117,7 +117,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   </a>
 
                   <a
-                    href="https://x.com/Eternalknigh?t=9zzpTY3YIyS5hs7ts27LmQ&s=09"
+                    href="https://x.com/CloudKnight002"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="footer-social__link"
