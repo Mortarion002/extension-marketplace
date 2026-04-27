@@ -44,9 +44,9 @@ export default async function HomePage() {
         <AnimatedHero />
 
         {/* Grid of cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {extensions.length === 0 ? (
-            <div className="col-span-full text-center py-12 text-gray-600">
+            <div className="col-span-full text-center py-12 text-zinc-500">
               No extensions found — ensure <code>data/extensions.json</code> exists.
             </div>
           ) : (

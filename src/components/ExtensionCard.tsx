@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { FaGithub, FaDownload } from "react-icons/fa";
+import { Terminal, Star } from "lucide-react";
 
 type Ext = {
   title: string;
@@ -14,62 +14,45 @@ type Ext = {
 };
 
 export default function ExtensionCard({ ext }: { ext: Ext }) {
-  const initial = ext.screenshots && ext.screenshots.length > 0 ? ext.screenshots[0] : "/screenshots/placeholder.jpg";
-  const [bgSrc, setBgSrc] = React.useState(initial);
-
-  const onBgError = () => setBgSrc("/screenshots/placeholder.jpg");
-
   return (
-    <article className="extension-card" aria-labelledby={`ext-${ext.slug}-title`}>
-      <img
-        src={bgSrc}
-        alt={`${ext.title} screenshot`}
-        className="extension-card__img"
-        onError={onBgError}
-        draggable={false}
-      />
+    <article 
+      className="relative flex flex-col justify-between p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/50 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-2xl hover:shadow-teal-500/10 group"
+      aria-labelledby={`ext-${ext.slug}-title`}
+    >
+      {/* Teal Dot */}
+      <div className="absolute top-6 right-6 w-2 h-2 rounded-full bg-teal-500" aria-hidden="true" />
 
-      <div className="extension-card__overlay" />
-
-      <div className="extension-card__content">
-        <div className="extension-card__meta">
-          <h3 id={`ext-${ext.slug}-title`} className="extension-card__title">
-            {ext.title}
-          </h3>
-
-          {/* hidden by default, revealed on hover */}
-          <p
-            className="extension-card__desc"
-            aria-hidden={ext.shortDesc ? "false" : "true"}
-          >
-            {ext.shortDesc ?? ""}
-          </p>
+      <div>
+        {/* Icon */}
+        <div className="w-12 h-12 rounded-xl bg-zinc-800/80 border border-zinc-700/50 flex items-center justify-center mb-5 text-teal-400 group-hover:scale-105 transition-transform duration-300">
+          <Terminal size={24} />
         </div>
 
-        <div className="extension-card__actions" aria-hidden="false">
-          <a
-            href={ext.downloadUrl || "#"}
-            className="btn-icon"
-            aria-label={`Download ${ext.title}`}
-            title={`Download ${ext.title}`}
-            rel="noopener noreferrer"
-          >
-            <FaDownload />
-            <span className="sr-only">Download {ext.title}</span>
-          </a>
+        {/* Content */}
+        <h3 id={`ext-${ext.slug}-title`} className="text-xl font-semibold text-gray-100 mb-2 group-hover:text-white transition-colors duration-300">
+          {ext.title}
+        </h3>
+        <p className="text-sm text-zinc-400 leading-relaxed mb-8 line-clamp-2">
+          {ext.shortDesc ?? ""}
+        </p>
+      </div>
 
-          <a
-            href={ext.githubUrl || "#"}
-            className="btn-icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Open ${ext.title} on GitHub`}
-            title={`Open ${ext.title} on GitHub`}
-          >
-            <FaGithub />
-            <span className="sr-only">Open {ext.title} on GitHub</span>
-          </a>
+      {/* Footer */}
+      <div className="flex items-center justify-between pt-5 border-t border-zinc-800/50">
+        <div className="flex items-center gap-1.5 text-xs text-zinc-500 font-medium">
+          <Star size={14} className="fill-current text-zinc-400" />
+          <span className="text-zinc-300">4.9</span>
+          <span className="mx-1">•</span>
+          <span>12k Users</span>
         </div>
+
+        <a
+          href={ext.downloadUrl || ext.githubUrl || "#"}
+          className="px-4 py-1.5 rounded-lg bg-transparent border border-zinc-700 text-sm text-gray-100 font-medium hover:bg-zinc-800 hover:border-zinc-600 transition-colors"
+          aria-label={`Install ${ext.title}`}
+        >
+          Install
+        </a>
       </div>
     </article>
   );
