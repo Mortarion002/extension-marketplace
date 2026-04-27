@@ -2,8 +2,9 @@
 import "./globals.css";
 import React from "react";
 import Link from "next/link";
-import { Search } from "lucide-react";
-import { ThemeProvider } from "next-themes";
+import { Github } from "lucide-react";
+import ThemeToggle from "../components/ThemeToggle";
+import { ThemeProvider } from "../components/ThemeProvider";
 
 import fs from "fs";
 import path from "path";
@@ -19,42 +20,29 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head />
       <body>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <header className="border-b border-zinc-800/50 bg-[#09090b]/80 backdrop-blur-md sticky top-0 z-50">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <header className="border-b border-white/10 bg-zinc-950/70 backdrop-blur-md sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-              <div className="flex items-center gap-12">
-                <Link href="/" className="flex items-center">
-                  <span className="text-xl font-bold tracking-tight text-gray-100">
-                    EXT.CORE
-                  </span>
-                </Link>
-
-                <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
-                  <Link href="/" className="text-white border-b-2 border-teal-500 py-5">
-                    Discover
-                  </Link>
-                  <Link href="/categories" className="hover:text-white transition-colors">
-                    Categories
-                  </Link>
-                  <Link href="/developers" className="hover:text-white transition-colors">
-                    Developer Portal
-                  </Link>
-                  <Link href="/stats" className="hover:text-white transition-colors">
-                    Stats
-                  </Link>
-                </nav>
-              </div>
+              <Link href="/" className="flex items-center">
+                <span className="text-xl font-bold tracking-tight text-gray-100">
+                  EXT.CORE
+                </span>
+              </Link>
 
               <div className="flex items-center gap-6">
-                <button className="text-gray-400 hover:text-white transition-colors" aria-label="Search">
-                  <Search size={18} />
-                </button>
-                <Link href="/signin" className="text-sm font-semibold text-teal-400 hover:text-teal-300 transition-colors">
-                  Sign In
-                </Link>
+                <a
+                  href="https://github.com/EternalKnight002"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="GitHub Repository"
+                >
+                  <Github size={20} />
+                </a>
+                <ThemeToggle />
               </div>
             </div>
           </header>
