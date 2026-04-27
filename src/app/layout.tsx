@@ -2,7 +2,8 @@
 import "./globals.css";
 import React from "react";
 import Link from "next/link";
-import { Github } from "lucide-react";
+import { Github as LucideGithub } from "lucide-react";
+import { FaXTwitter, FaLinkedin, FaGithub } from "react-icons/fa6";
 import ThemeToggle from "../components/ThemeToggle";
 import { ThemeProvider } from "../components/ThemeProvider";
 
@@ -40,7 +41,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   className="text-gray-400 hover:text-white transition-colors"
                   aria-label="GitHub Repository"
                 >
-                  <Github size={20} />
+                  <LucideGithub size={20} />
                 </a>
                 <ThemeToggle />
               </div>
@@ -50,19 +51,34 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-h-screen">{children}</main>
 
           
-          <footer className="border-t border-zinc-800/50 bg-[#09090b] py-8 mt-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                <span className="text-gray-100 text-base font-bold tracking-tight normal-case">EXT.CORE</span>
-                <span>© 2024 EXT.CORE. PRECISION ENGINEERED FOR THE CONFIDENT OPERATOR.</span>
-              </div>
-              <div className="flex items-center gap-6 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-                <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-                <Link href="/security" className="hover:text-white transition-colors">Security</Link>
-                <Link href="/docs" className="hover:text-white transition-colors">API Documentation</Link>
-              </div>
-            </div>
+          <footer className="border-t border-white/5 bg-[#09090b] mt-12 py-8 flex justify-center items-center gap-6">
+            <a
+              href="[INSERT_X_LINK_HERE]"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-500 hover:text-teal-400 transition-colors"
+              aria-label="X (Twitter)"
+            >
+              <FaXTwitter size={24} />
+            </a>
+            <a
+              href="https://github.com/Mortarion002"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-500 hover:text-teal-400 transition-colors"
+              aria-label="GitHub"
+            >
+              <FaGithub size={24} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/aman-kumar-537a73296"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-500 hover:text-teal-400 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={24} />
+            </a>
           </footer>
         </ThemeProvider>
       </body>
