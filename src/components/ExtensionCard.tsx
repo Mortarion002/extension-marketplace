@@ -54,9 +54,17 @@ export default function ExtensionCard({ ext, index = 0 }: { ext: Ext; index?: nu
     >
       <div className="ext-card-media">
         <span className="ext-card-badge">{platform}</span>
-        <div className="ext-card-media-art">
-          <div className="ext-card-glyph">{icon}</div>
-        </div>
+        {ext.screenshots?.[0] ? (
+          <img
+            src={ext.screenshots[0]}
+            alt={`${ext.title} screenshot`}
+            className="ext-card-screenshot"
+          />
+        ) : (
+          <div className="ext-card-media-art">
+            <div className="ext-card-glyph">{icon}</div>
+          </div>
+        )}
       </div>
 
       <div className="ext-card-body">

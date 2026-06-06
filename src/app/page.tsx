@@ -3,6 +3,7 @@ import React from "react";
 import fs from "fs";
 import path from "path";
 import AnimatedHero from "../components/AnimatedHero";
+import ExtensionGallery from "../components/ExtensionGallery";
 import HowToDownloadSection from "../components/HowToDownloadSection";
 
 type Ext = {
@@ -34,6 +35,7 @@ export default async function HomePage() {
   return (
     <>
       <AnimatedHero totalCount={extensions.length} />
+      <ExtensionGallery extensions={extensions} />
       <HowToDownloadSection />
     </>
   );
