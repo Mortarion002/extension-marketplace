@@ -2,7 +2,8 @@
 "use client";
 
 import React from "react";
-import { FaGithub, FaDownload } from "react-icons/fa";
+import { Terminal, ChevronRight } from "lucide-react";
+import VideoPlayer from "./VideoPlayer";
 
 type Ext = {
   title: string;
@@ -11,66 +12,50 @@ type Ext = {
   screenshots?: string[];
   githubUrl?: string;
   downloadUrl?: string;
+  videoUrl?: string;
+  poster?: string;
 };
 
 export default function ExtensionCard({ ext }: { ext: Ext }) {
-  const initial = ext.screenshots && ext.screenshots.length > 0 ? ext.screenshots[0] : "/screenshots/placeholder.jpg";
-  const [bgSrc, setBgSrc] = React.useState(initial);
-
-  const onBgError = () => setBgSrc("/screenshots/placeholder.jpg");
-
   return (
-    <article className="extension-card" aria-labelledby={`ext-${ext.slug}-title`}>
-      <img
-        src={bgSrc}
-        alt={`${ext.title} screenshot`}
-        className="extension-card__img"
-        onError={onBgError}
-        draggable={false}
-      />
+    <article 
+      className="group flex flex-col rounded-xl bg-zinc-900/40 border border-white/5 transition-colors duration-300 hover:bg-zinc-800/60 hover:border-white/10 overflow-hidden"
+      aria-labelledby={`ext-${ext.slug}-title`}
+    >
+      {ext.videoUrl && (
+        <div className="w-full">
+          <VideoPlayer
+            src={ext.videoUrl}
+            poster={ext.poster || ""}
+            title={ext.title}
+          />
+        </div>
+      )}
 
-      <div className="extension-card__overlay" />
+      <a 
+        href={ext.downloadUrl || ext.githubUrl || "#"}
+        className="flex items-center gap-4 p-4 flex-1"
+      >
+        {/* Icon Container */}
+        <div className="w-10 h-10 shrink-0 rounded-lg bg-white/5 flex items-center justify-center text-teal-400">
+          <Terminal size={20} />
+        </div>
 
-      <div className="extension-card__content">
-        <div className="extension-card__meta">
-          <h3 id={`ext-${ext.slug}-title`} className="extension-card__title">
+        {/* Content Stack */}
+        <div className="flex flex-col min-w-0">
+          <h3 id={`ext-${ext.slug}-title`} className="text-gray-100 font-medium text-base truncate">
             {ext.title}
           </h3>
-
-          {/* hidden by default, revealed on hover */}
-          <p
-            className="extension-card__desc"
-            aria-hidden={ext.shortDesc ? "false" : "true"}
-          >
+          <p className="text-xs text-zinc-500 truncate">
             {ext.shortDesc ?? ""}
           </p>
         </div>
 
-        <div className="extension-card__actions" aria-hidden="false">
-          <a
-            href={ext.downloadUrl || "#"}
-            className="btn-icon"
-            aria-label={`Download ${ext.title}`}
-            title={`Download ${ext.title}`}
-            rel="noopener noreferrer"
-          >
-            <FaDownload />
-            <span className="sr-only">Download {ext.title}</span>
-          </a>
-
-          <a
-            href={ext.githubUrl || "#"}
-            className="btn-icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Open ${ext.title} on GitHub`}
-            title={`Open ${ext.title} on GitHub`}
-          >
-            <FaGithub />
-            <span className="sr-only">Open {ext.title} on GitHub</span>
-          </a>
+        {/* Action Icon */}
+        <div className="ml-auto shrink-0 text-zinc-600 group-hover:text-teal-400 transition-colors duration-300">
+          <ChevronRight size={18} />
         </div>
-      </div>
+      </a>
     </article>
   );
 }

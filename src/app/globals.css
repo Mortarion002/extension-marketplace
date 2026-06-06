@@ -40,17 +40,17 @@ header {
 
 /* ================= Theme Colors ================= */
 :root {
-  --bg: #ffffff;
-  --text: #0f172a;
-  --muted: #6b7280;
-  --card-bg: rgba(255,255,255,0.6);
+  --bg: #09090b;
+  --text: #f3f4f6;
+  --muted: #a1a1aa;
+  --card-bg: rgba(24,24,27,0.5);
 }
 
 .dark {
-  --bg: #071025;
-  --text: #e6eef9;
-  --muted: #94a3b8;
-  --card-bg: rgba(6,8,14,0.6);
+  --bg: #09090b;
+  --text: #f3f4f6;
+  --muted: #a1a1aa;
+  --card-bg: rgba(24,24,27,0.5);
 }
 
 html, body, #__next {
