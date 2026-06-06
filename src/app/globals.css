@@ -626,6 +626,44 @@ body {
   color: var(--text-soft);
 }
 
+.howto-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 2.5rem 0;
+}
+.howto-demos-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+.howto-demos-sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+.howto-demos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+@media (max-width: 720px) {
+  .howto-demos-grid { grid-template-columns: 1fr; }
+}
+.howto-demo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.howto-demo-label {
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  text-align: center;
+}
+
 /* ================= Footer ================= */
 .site-footer {
   border-top: 1px solid var(--border);

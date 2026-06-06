@@ -74,10 +74,9 @@ export default function VideoPlayer({ src, poster, title }: Props) {
         )}
       </div>
 
-      <div className="mt-4">
-        <div className="text-sm text-gray-700 dark:text-gray-300">{title}</div>
-        
-      </div>
+      {title && (
+        <p className="howto-demo-label">{title}</p>
+      )}
     </div>
   );
 }
