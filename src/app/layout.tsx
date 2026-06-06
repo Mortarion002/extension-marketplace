@@ -69,36 +69,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
           {/* Footer */}
           <footer className="site-footer">
-            <div className="container footer-inner">
-              <div>
-                <Link href="/" className="brand-mark">
-                  <span className="brand-glyph">
-                    <Sparkles size={14} />
-                  </span>
-                  <span className="text-base">EXT<span style={{ color: "var(--accent)" }}>.</span>CORE</span>
-                </Link>
-                <p className="footer-tag">
-                  Precision-engineered, privacy-first browser and editor extensions. Open source, always.
-                </p>
-              </div>
-
-              <div>
-                <div className="footer-col-title">Product</div>
-                <a href="#gallery" className="footer-link">All Extensions</a>
-                <a href="#install" className="footer-link">Install Guide</a>
-                <a href="https://github.com/Mortarion002" target="_blank" rel="noopener noreferrer" className="footer-link">
-                  GitHub
-                </a>
-              </div>
-
-              <div>
-                <div className="footer-col-title">Categories</div>
-                <a href="#gallery" className="footer-link">Productivity</a>
-                <a href="#gallery" className="footer-link">Developer Tools</a>
-                <a href="#gallery" className="footer-link">Utilities</a>
-              </div>
-            </div>
-
             <div className="container footer-bottom">
               <div>© {new Date().getFullYear()} EXT.CORE — Built with care.</div>
               <div className="footer-social">
