@@ -222,8 +222,8 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 Found a bug or have a feature idea? Drop an issue on GitHub or reach out via:
 
 - **Email:** resoamankumar@gmail.com
-- **GitHub:** [EternalKnight002](https://github.com/Mortarion002)
-- **Twitter/X:** [@CloudKnight](https://x.com/CloudKnight002)
+- **GitHub:** [Mortarion002](https://github.com/Mortarion002)
+- **Twitter/X:** [@CloudKnight002](https://x.com/CloudKnight002)
 - **LinkedIn:** [Aman Kumar](https://linkedin.com/in/aman-kumar-537a73296)
 
 ## 📚 Learn More

@@ -3,47 +3,68 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import SearchInput from "./SearchInput";
+import { Sparkles } from "lucide-react";
 
-export default function AnimatedHero() {
+type Props = {
+  totalCount?: number;
+};
+
+export default function AnimatedHero({ totalCount = 0 }: Props) {
   return (
-    <section className="relative mb-16 pt-20 pb-12 overflow-hidden flex flex-col items-center justify-center min-h-[40vh]">
-      {/* Subtle Background Orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-teal-500/10 blur-3xl rounded-full pointer-events-none" aria-hidden="true" />
-      
-      <div className="container text-center relative z-10 max-w-4xl mx-auto px-4">
-        <motion.h1
-          initial={{ opacity: 0, y: 10 }}
+    <section className="hero">
+      <div className="hero-grid-bg" aria-hidden />
+      <div className="hero-glow" aria-hidden />
+
+      <div className="relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight text-gray-100 tracking-tight"
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="inline-flex"
         >
-          Supercharge Your Workflow
+          <span className="hero-eyebrow">
+            <span className="dot" />
+            <Sparkles size={12} style={{ color: "var(--accent)" }} />
+            Privacy-first · Open source · Manifest V3
+          </span>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }}
+          className="hero-title"
+        >
+          Tools that <span className="grad">sharpen</span> the way you build &amp; browse.
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.08, duration: 0.6 }}
-          className="mt-6 mx-auto text-base md:text-xl text-gray-400 font-medium max-w-2xl"
+          transition={{ delay: 0.18, duration: 0.5 }}
+          className="hero-sub"
         >
-          Precision engineered tools for the confident operator. Install vetted extensions to
-          optimize your browser environment.
+          A curated set of browser and editor extensions — lightweight, local-first, and free.
+          Drop them into Chrome or VS Code and get back to the work that matters.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.18, duration: 0.6 }}
-          className="mt-12 w-full"
+          transition={{ delay: 0.28, duration: 0.5 }}
+          className="hero-stats"
         >
-          <SearchInput placeholder="Search extensions, tools, or developers..." />
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            {["Developer Tools", "Productivity", "Security"].map((tag) => (
-              <span key={tag} className="px-4 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/50 text-sm text-gray-400 cursor-pointer hover:border-zinc-600 hover:text-gray-300 transition-colors">
-                {tag}
-              </span>
-            ))}
+          <div className="hero-stat">
+            <div className="hero-stat-num">{totalCount || "7"}+</div>
+            <div className="hero-stat-label">Extensions</div>
+          </div>
+          <div className="hero-stat">
+            <div className="hero-stat-num">100%</div>
+            <div className="hero-stat-label">Open source</div>
+          </div>
+          <div className="hero-stat">
+            <div className="hero-stat-num">0</div>
+            <div className="hero-stat-label">Trackers</div>
           </div>
         </motion.div>
       </div>
