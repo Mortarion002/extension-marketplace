@@ -2,60 +2,103 @@
 "use client";
 
 import React from "react";
-import { Terminal, ChevronRight } from "lucide-react";
-import VideoPlayer from "./VideoPlayer";
+import {
+  Download,
+  Github,
+  Highlighter,
+  Copy,
+  Terminal,
+  FileText,
+  Timer,
+  QrCode,
+  History,
+  Puzzle,
+} from "lucide-react";
 
 type Ext = {
   title: string;
   slug: string;
   shortDesc?: string;
+  tags?: string[];
   screenshots?: string[];
   githubUrl?: string;
   downloadUrl?: string;
-  videoUrl?: string;
-  poster?: string;
 };
 
-export default function ExtensionCard({ ext }: { ext: Ext }) {
+const ICONS: Record<string, React.ReactNode> = {
+  "article-highlighter": <Highlighter size={26} />,
+  "copy-code-cleaner": <Copy size={26} />,
+  "logtailer": <Terminal size={26} />,
+  "notebooklm-pdf-exporter": <FileText size={26} />,
+  "pomodoro-focus-timer": <Timer size={26} />,
+  "quick-qr-generator": <QrCode size={26} />,
+  "terminal-history": <History size={26} />,
+};
+
+function platformOf(tags: string[] = []) {
+  const t = tags.map((s) => s.toLowerCase());
+  if (t.includes("vscode")) return "VS Code";
+  if (t.includes("chrome")) return "Chrome";
+  return "Extension";
+}
+
+export default function ExtensionCard({ ext, index = 0 }: { ext: Ext; index?: number }) {
+  const icon = ICONS[ext.slug] || <Puzzle size={26} />;
+  const platform = platformOf(ext.tags);
+
   return (
-    <article 
-      className="group flex flex-col rounded-xl bg-zinc-900/40 border border-white/5 transition-colors duration-300 hover:bg-zinc-800/60 hover:border-white/10 overflow-hidden"
+    <article
+      className="ext-card fade-up"
+      style={{ animationDelay: `${Math.min(index * 60, 360)}ms` }}
       aria-labelledby={`ext-${ext.slug}-title`}
     >
-      {ext.videoUrl && (
-        <div className="w-full">
-          <VideoPlayer
-            src={ext.videoUrl}
-            poster={ext.poster || ""}
-            title={ext.title}
-          />
+      <div className="ext-card-media">
+        <span className="ext-card-badge">{platform}</span>
+        <div className="ext-card-media-art">
+          <div className="ext-card-glyph">{icon}</div>
         </div>
-      )}
+      </div>
 
-      <a 
-        href={ext.downloadUrl || ext.githubUrl || "#"}
-        className="flex items-center gap-4 p-4 flex-1"
-      >
-        {/* Icon Container */}
-        <div className="w-10 h-10 shrink-0 rounded-lg bg-white/5 flex items-center justify-center text-teal-400">
-          <Terminal size={20} />
-        </div>
+      <div className="ext-card-body">
+        <h3 id={`ext-${ext.slug}-title`} className="ext-card-title">
+          {ext.title}
+        </h3>
+        <p className="ext-card-desc">{ext.shortDesc}</p>
+        {ext.tags && ext.tags.length > 0 && (
+          <div className="ext-card-tags">
+            {ext.tags.slice(0, 3).map((t) => (
+              <span key={t} className="ext-tag">
+                {t}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
 
-        {/* Content Stack */}
-        <div className="flex flex-col min-w-0">
-          <h3 id={`ext-${ext.slug}-title`} className="text-gray-100 font-medium text-base truncate">
-            {ext.title}
-          </h3>
-          <p className="text-xs text-zinc-500 truncate">
-            {ext.shortDesc ?? ""}
-          </p>
-        </div>
-
-        {/* Action Icon */}
-        <div className="ml-auto shrink-0 text-zinc-600 group-hover:text-teal-400 transition-colors duration-300">
-          <ChevronRight size={18} />
-        </div>
-      </a>
+      <div className="ext-card-actions">
+        <a
+          href={ext.downloadUrl || ext.githubUrl || "#"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary"
+          aria-label={`Install ${ext.title}`}
+        >
+          <Download size={14} />
+          Install
+        </a>
+        {ext.githubUrl && (
+          <a
+            href={ext.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-ghost"
+            aria-label={`${ext.title} on GitHub`}
+          >
+            <Github size={14} />
+            Source
+          </a>
+        )}
+      </div>
     </article>
   );
 }
